@@ -581,36 +581,7 @@
 </div>
 
 <script>
-   function music() {
-    function getQueryParam(name) {
-      var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
-
-    var songParam = getQueryParam('song');
-    if (songParam == null || songParam === '') return;
-
-    var idx = parseInt(songParam, 10);
-    if (isNaN(idx)) return;
-
-    var songSrcs = [
-      'oce.mp3',                        // track 0: Ocean Eyes
-      'bargad.mp3',                     // track 1: Bargad
-      'If The World Was Ending.mp3',    // track 2: If the world was ending
-    ];
-
-    var src = songSrcs[idx];
-    if (!src) return;
-
-    try {
-      var audio = new Audio(src);
-      audio.loop = true;
-      audio.volume = 0.8;
-      audio.play().catch(function(){});
-    } catch (e) {
-      // Ignore playback errors (e.g., user interaction required)
-    }
-  }();
+  
   var flipped  = [false, false, false];
   var revealed = [false, false, false];
   var count = 0;
